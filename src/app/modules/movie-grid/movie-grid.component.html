@@ -1,0 +1,106 @@
+<div class="ml-32 my-3 group">
+    <div class="text-white text-xl font-medium my-2 flex justify-between">Continue Watching for Rashika
+        <button class="items-center text-base hidden group-hover:flex mr-3 text-white/50 hover:text-white">View all
+            <span class="material-symbols-rounded">
+                chevron_right
+            </span></button>
+    </div>
+
+    <div class="flex group relative overflow-y-visible overflow-x-hidden">
+        <div class="flex gap-2 cursor-pointer overflow-y-visible overflow-x-hidden" #scrollContainer>
+            <div class="" *ngFor="let movie of continueWatchingMovies; let i = index">
+                <div class="w-72 " [ngClass]="{
+                        'hover:scale-150 origin-bottom duration-200': i != 0 || i != continueWatchingMovies.length - 1,
+                        'hover:origin-bottom-left': i == 0,
+                        'hover:origin-bottom-right': i == continueWatchingMovies.length - 1
+                     }">
+                    <div class="grid hover:gap-0 rounded-lg text-lg text-white/90 hover:bg-[#1f2021] movieCard"
+                        #card>
+                        <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg" />
+                        <!-- <div class="absolute top-0 w-72 flex flex-col justify-between gap-12">
+                                <button class="text-right p-2" (click)="removeFromList()"> <span
+                                        class="material-symbols-rounded text-white/80 ">
+                                        close
+                                    </span></button>
+                                <button class="text-left p-2">
+                                    <span class="material-symbols-rounded text-white/80 text-3xl ">
+                                        play_arrow
+                                    </span>
+                                </button>
+                            </div> -->
+                        <div class="px-3 py-2">
+                            <div>{{movie.seasonDate}}</div>
+                            <div class="font-medium"
+                                [ngClass]="movie.episode === 'New Episode' ? 'text-blue-500':'text-white/50'">
+                                {{movie.episode}}</div>
+                            <button class="w-full place-content-center invisible moreDetails flex items-center">View
+                                more
+                                details
+                                <span class="material-symbols-rounded text-base">
+                                    chevron_right
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute left-0 top-0 hidden h-full justify-between group-hover:flex">
+            <button class="bg-gradient-to-r from-black/80 to-transparent " (click)="leftSwiperButton('cont1')">
+                <span class="material-symbols-rounded text-4xl text-white">
+                    chevron_left
+                </span>
+            </button>
+        </div>
+        <div class="absolute right-0 top-0 hidden h-full justify-between group-hover:flex">
+            <button class="bg-gradient-to-l from-black/80 to-transparent " (click)="rightSwiperButton('cont1')">
+                <span class="material-symbols-rounded text-4xl text-white">
+                    chevron_right
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="ml-32 my-3 group">
+    <div class="text-white text-xl font-medium my-2 flex justify-between">Latest Release
+        <button class="hidden items-center text-base group-hover:flex mr-3 text-white/50 hover:text-white">View all
+            <span class="material-symbols-rounded">
+                chevron_right
+            </span></button>
+    </div>
+
+    <div class="group flex gap-6 mb-14 relative overflow-hidden">
+        <div class="flex gap-2 cursor-pointer overflow-hidden" #scrollContainer2>
+            <div class="" *ngFor="let movie of latestRelease; let i = index">
+                <div class="rounded-lg w-48" [ngClass]="{
+                        'hover:scale-125 origin-bottom duration-200 hover:translate-y-6': i != 0 || i != latestRelease.length - 1,
+                        'hover:origin-bottom-left hover:translate-y-4': i == 0,
+                        'hover:origin-bottom-right hover:translate-y-4': i == latestRelease.length - 1
+                     }">
+                    <div class="">
+                        <img [src]="movie.Poster" alt="" class="h-72 rounded-lg" />
+                    </div>
+                    <!-- <div class="text-wrap p-2 text-white bg-[#0f1014]">Lorem Ipsum is simply dummy text of the
+                            printing and typesetting
+                            industry.</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="absolute left-0 top-0 hidden h-full justify-between group-hover:flex">
+            <button class="bg-gradient-to-r from-black/80 to-transparent " (click)="leftSwiperButton('cont2')">
+                <span class="material-symbols-rounded text-4xl text-white">
+                    chevron_left
+                </span>
+            </button>
+        </div>
+        <div class="absolute right-0 top-0 hidden h-full justify-between group-hover:flex">
+            <button class="bg-gradient-to-l from-black/80 to-transparent " (click)="rightSwiperButton('cont2')">
+                <span class="material-symbols-rounded text-4xl text-white">
+                    chevron_right
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

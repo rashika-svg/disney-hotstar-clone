@@ -1,0 +1,8 @@
+.navList { 
+    @apply cursor-pointer duration-200 hover:translate-x-2 text-white/50 hover:text-white hover:font-bold;
+}
+
+.navItems {
+    @apply flex gap-6
+}
+

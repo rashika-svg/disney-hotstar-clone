@@ -1,0 +1,33 @@
+<app-disney-logo></app-disney-logo>
+<div class="flex justify-between items-center px-20 font-semibold">
+    <div></div>
+    <div class="text-white text-3xl">Who's watching?</div>
+    <div class="hover:scale-105 duration-300">
+        <button class="text-white flex gap-2 text-lg items-center">
+            <span class="material-symbols-outlined">
+                edit
+            </span>
+            Edit</button>
+    </div>
+</div>
+<div class="w-3/5 h-3/5 m-auto grid grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-0 justify-between items-center">
+    <div class="w-[8.5rem] h-[8.5rem] rounded-full cursor-pointer hover:scale-110 duration-300" [routerLink]="'/home'">
+        <img src="https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/v1/feature/profile/38.png" alt="">
+        <p class="text-white text-center pt-4">Joy</p>
+    </div>
+    <div class="w-[8.5rem] h-[8.5rem] rounded-full cursor-pointer hover:scale-110 duration-300" [routerLink]="'/home'">
+        <img src="https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/feature/profile/5.png" alt="">
+        <p class="text-white text-center pt-4">Mank</p>
+    </div>
+    <div class="w-[8.5rem] h-[8.5rem] rounded-full cursor-pointer hover:scale-110 duration-300" [routerLink]="'/home'">
+        <img src="https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/feature/profile/3.png" alt="">
+        <p class="text-white text-center pt-4">Rashika</p>
+    </div>
+    <div class="w-[8.5rem] h-[8.5rem] rounded-full cursor-pointer hover:scale-110 duration-300" [routerLink]="'/home'">
+        <img src="https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/v1/feature/profile/28.png" alt="">
+        <p class="text-white text-center pt-4">Kops</p>
+    </div>
+    <div class="w-[8.5rem] h-[8.5rem] rounded-full cursor-pointer hover:scale-110 duration-300 bg-white/10 flex justify-center items-center">
+        <span class="text-white text-6xl font-extralight">+</span>
+    </div>
+</div>

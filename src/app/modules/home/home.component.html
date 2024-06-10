@@ -1,0 +1,91 @@
+<div>
+    <div class="">
+        <app-side-nav></app-side-nav>
+    </div>
+    <div class="relative">
+        <div class="w-full h-screen relative">
+            <div #thumbnail>
+                <img [src]="selectedMovie.thumbnail" class="w-full h-full object-cover fixed top-0 brightness-75"
+                    alt="">
+            </div>
+            <div #featVideo>
+                <video [src]="selectedMovie.video" autoplay loop
+                    class="w-full h-full object-cover fixed top-0 brightness-50 scale-105"></video>
+            </div>
+            <div
+                class="absolute flex justify-between items-end z-10 text-white pl-32 pr-20 h-1/2 top-1/3 w-full text-base">
+                <div class="w-1/3 text-white/60 hover:text-white duration-500">
+                    <div class="text-7xl"><img [src]="selectedMovie.icon" alt="Movie Icon"></div>
+                    <div class="text-blue-400 font-bold my-6">{{selectedMovie.chronology}}</div>
+                    <div class="flex gap-2 items-center font-medium">
+                        <span>{{selectedMovie.year}}</span><span class="material-symbols-rounded text-[0.4rem]">
+                            circle
+                        </span>
+                        <span>{{selectedMovie.duration}}</span><span class="material-symbols-rounded text-[0.4rem]">
+                            circle
+                        </span>
+                        <span>{{selectedMovie.language}}</span><span class="material-symbols-rounded text-[0.4rem]">
+                            circle
+                        </span>
+                        <span class="px-2 rounded bg-white/30">U/A 13+</span>
+                    </div>
+                    <div class="mt-6 leading-relaxed">{{selectedMovie.content}}
+                    </div>
+                    <div class="font-medium my-8">{{selectedMovie.genre}}</div>
+                    <div class="flex gap-6 items-center"><button
+                            class="text-xl font-medium rounded-lg py-2 px-28 bg-white/20 flex gap-2 items-center"><span
+                                class="material-symbols-rounded text-4xl">
+                                play_arrow
+                            </span>Watch Now</button>
+                        <button class="py-2 px-5 bg-white/20 rounded-lg text-xl"><span
+                                class="text-4xl font-extralight">+</span></button>
+                    </div>
+                </div>
+                <div>
+                    <div align="end" class="pb-10 text-white/50">
+                        <button matTooltip="Unmute trailer">
+                            <span class="material-symbols-outlined text-3xl">
+                                volume_mute
+                            </span>
+                        </button>
+                        <button matTooltip="Mute trailer">
+                            <span class="material-symbols-outlined text-3xl">
+                                volume_off
+                            </span>
+                        </button>
+                    </div>
+                    <div class="group relative float-right w-96">
+                        <div class="flex h-1/2 overflow-hidden" #scrollContainer>
+                            <div class="pr-2 py-1" *ngFor="let movie of movieCarousel; let i = index">
+                                <div
+                                    class="rounded hover:scale-110 duration-100 brightness-75 hover:brightness-100 w-20 cursor-pointer">
+                                    <img class="h-12 w-full rounded" [src]="movie.thumbnail" alt=""
+                                        (click)="selectedItem(i)">
+                                </div>
+                                <div class="absolute left-0 top-1 hidden h-12 justify-between group-hover:flex">
+                                    <button class="bg-gradient-to-r from-black/5 to-transparent rounded"
+                                        (click)="leftSwiperButton()" #leftButton><span
+                                            class="material-symbols-rounded text-2xl text-white">
+                                            chevron_left
+                                        </span></button>
+                                </div>
+                                <div class="absolute right-0 top-1 hidden h-12 justify-between group-hover:flex">
+                                    <button class="bg-gradient-to-l from-black/5 to-transparent rounded"
+                                        (click)="rightSwiperButton()" #rightButton><span
+                                            class="material-symbols-rounded text-2xl text-white">
+                                            chevron_right
+                                        </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="absolute right-0 w-full bg-gradient-to-t from-black/90 via-black/90 to-transparent top-[90%]">
+            <app-movie-grid></app-movie-grid>
+        </div>
+    </div>
+</div>

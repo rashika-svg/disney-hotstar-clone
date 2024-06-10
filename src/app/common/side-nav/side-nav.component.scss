@@ -1,0 +1,11 @@
+.navList {
+  @apply cursor-pointer duration-200 text-white/70 ;
+}
+
+.navItems {
+  @apply flex gap-4 ease-in-out duration-300 ;
+}
+
+.navItems:hover {
+  @apply text-white font-bold translate-x-2 scale-110 ;
+}
