@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "disney-hotstar-clone-a0c89",
+    "disney-hotstar-clone": "disney-hotstar-clone-a0c89"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
