@@ -169,7 +169,7 @@ export class HomeComponent implements OnInit {
 
   selectedMovieIndex: number = 0;
   selectedMovie = this.movieCarousel[0];
-
+  isMuted = false;
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   @ViewChild('thumbnail', { static: true }) thumbnail!: ElementRef;
@@ -182,8 +182,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     // this.updateButtonVisibility();
+  }
+
+ 
+  toggleMute() {
+    this.isMuted = !this.isMuted;
   }
 
   leftSwiperButton() {

@@ -1,0 +1,60 @@
+<div class="container group relative h-80 pt-4">
+    <div class="text-white text-xl font-medium my-2 flex justify-between">Continue Watching for {{tableName}}
+        <button class="items-center text-base hidden group-hover:flex mr-3 text-white/50 hover:text-white">View all
+            <span class="material-symbols-rounded">
+                chevron_right
+            </span>
+        </button>
+    </div>
+
+    <div class="absolute left-0 top-0 h-full z-50 hidden group-hover:flex justify-center">
+        <button class="" (click)="leftSwiperButton()">
+            <span class="material-symbols-rounded text-4xl text-white/70 hover:scale-110 hover:text-white duration-300">
+                chevron_left
+            </span>
+        </button>
+    </div>
+
+    <div class="flex gap-2 cursor-pointer" #scrollContainer>
+        <div class="relative h-full" *ngFor="let movie of continueWatchingMovies; let i = index"
+            (mouseover)="showDetails(movie)" (mouseleave)="hideDetails()">
+            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative">
+                <div class="bg-[#1f2021] rounded-lg">
+                    <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg z-10"
+                        [ngClass]="{'hidden': movie === selectedItem}" />
+                    <div class="px-3 pt-4 py-2" [ngClass]="{'hidden': movie === selectedItem}">
+                        <div>{{movie.seasonDate}} {{i}}</div>
+                        <div class="" [ngClass]="movie.episode === 'New Episode' ? 'text-blue-500':'text-white/50'">
+                            {{movie.episode}}
+                        </div>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="movie === selectedItem">
+                    <div class="scale-125 z-20 origin-bottom" [ngClass]="{'origin-bottom-left': i === 0}">
+                        <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg" />
+                        <div class="px-3 py-2">
+                            <div>{{movie.seasonDate}}</div>
+                            <div class="font-medium"
+                                [ngClass]="movie.episode === 'New Episode' ? 'text-blue-500':'text-white/50'">
+                                {{movie.episode}}
+                            </div>
+                            <button class="w-full place-content-center flex items-center">View
+                                more details <span class="material-symbols-rounded text-base">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute top-0 bottom-0 z-50 right-0 hidden group-hover:flex">
+        <button class="" (click)="rightSwiperButton()">
+            <span
+                class="material-symbols-rounded text-4xl text-white/70 hover:scale-110 hover:text-white duration-300">
+                chevron_right
+            </span>
+        </button>
+    </div>
+</div>

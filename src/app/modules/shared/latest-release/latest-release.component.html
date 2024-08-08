@@ -1,0 +1,73 @@
+<div class="container group relative h-96">
+    <div class="text-white text-xl font-medium my-2 flex justify-between">Continue Watching for {{tableName}}
+        <button class="items-center text-base hidden group-hover:flex mr-3 text-white/50 hover:text-white">View all
+            <span class="material-symbols-rounded">
+                chevron_right
+            </span>
+        </button>
+    </div>
+
+    <div class="absolute left-0 top-0 h-full z-50 hidden group-hover:flex justify-center">
+        <button class="rounded" (click)="leftSwiperButton()">
+            <span class="material-symbols-rounded text-4xl text-white/70 hover:scale-110 hover:text-white duration-300">
+                chevron_left
+            </span>
+        </button>
+    </div>
+
+    <div class="flex gap-2 cursor-pointer" #scrollContainer>
+        <div class="relative" *ngFor="let movie of latestRelease; let i = index" (mouseover)="showDetails(movie)"
+            (mouseleave)="hideDetails()">
+            <div class="w-48 grid hover:gap-0 rounded-lg text-lg text-white/90 movieCard relative">
+                <div class="rounded-lg">
+                    <img [src]="movie.poster" alt="cardImg" class="w-full h-72 object-cover rounded-lg z-10"
+                        [ngClass]="{'hidden': movie === selectedItem}" />
+                </div>
+
+                <ng-container *ngIf="movie === selectedItem">
+                    <div class="scale-125 z-20 w-64" [ngClass]="{'origin-left': i === 0}">
+                        <img [src]="movie.poster" alt="cardImg" class="h-48 w-full object-cover rounded-lg relative" />
+                        <div
+                            class="text-xs px-3 py-2 absolute -bottom-20 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent duration-300 w-full">
+
+                            <div class="flex gap-2 items-center">
+                                <button
+                                    class="font-medium rounded-lg py-2 w-full bg-white flex gap-1 items-center justify-center text-black">
+                                    <span class="material-symbols-rounded">
+                                        play_arrow
+                                    </span>Watch Now</button>
+                                <button class="py-2 px-5 bg-white/20 rounded-lg "><span
+                                        class="font-extralight text-xl">+</span>
+                                </button>
+                            </div>
+
+                            <div class="flex gap-2 items-center mt-2">
+                                <span>{{movie.year}}</span><span class="material-symbols-rounded text-[0.4rem]">
+                                    circle
+                                </span>
+                                <span>{{movie.language}}</span><span class="material-symbols-rounded text-[0.4rem]">
+                                    circle
+                                </span>
+                                <span>{{movie.ua}}</span><span class="material-symbols-rounded text-[0.4rem]">
+                                    circle
+                                </span>
+                                <span>{{movie.duration}}</span>
+                            </div>
+
+                            <div class=" text-white/50 mt-2">{{movie.description}}</div>
+
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute top-0 bottom-0 z-50 right-0 hidden group-hover:flex">
+        <button class="" (click)="rightSwiperButton()">
+            <span class="material-symbols-rounded text-4xl text-white/70 hover:scale-110 hover:text-white duration-300">
+                chevron_right
+            </span>
+        </button>
+    </div>
+</div>

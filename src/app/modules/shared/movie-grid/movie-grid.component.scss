@@ -1,0 +1,13 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.movieCard:hover div {
+    font-size: small;
+    background-color: #1f2021;
+    border-radius: 8px;
+}
+
+.movieCard:hover img {
+    border-radius: 8px 8px 0 0;
+}

@@ -4,11 +4,8 @@
 
 .movieCard:hover div {
     font-size: small;
-}
-
-.movieCard:hover .moreDetails {
-    visibility: visible;
-    font-size: x-small;
+    // background-color: #1f2021;
+    border-radius: 8px;
 }
 
 .movieCard:hover img {

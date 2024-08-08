@@ -9,9 +9,9 @@ import { HomeComponent } from './modules/home/home.component';
 import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MovieGridComponent } from './modules/movie-grid/movie-grid.component';
 import { MovieCarouselComponent } from './modules/movie-carousel/movie-carousel.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DisneyLogoComponent,
     HomeComponent,
     SideNavComponent,
-    MovieGridComponent,
     MovieCarouselComponent,
   ],
   imports: [
@@ -28,7 +27,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatTooltipModule
+    MatTooltipModule,
+    SharedModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
