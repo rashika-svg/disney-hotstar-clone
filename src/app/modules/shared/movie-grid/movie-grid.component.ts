@@ -6,8 +6,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
   styleUrls: ['./movie-grid.component.scss'],
 })
 export class MovieGridComponent implements OnInit, AfterViewInit {
- tableName = 'Best in Movies';
- 
+  tableName = 'Best in Movies';
+
   @ViewChild('scrollContainer') scrollContainer!: ElementRef<any>;
 
   continueWatchingMovies = [
@@ -53,7 +53,7 @@ export class MovieGridComponent implements OnInit, AfterViewInit {
   ]
 
   selectedItem: any = null;
-  itemWidth = 296;
+  itemWidth = 287;
   currentTranslateX = 0;
 
   constructor() {
@@ -67,11 +67,11 @@ export class MovieGridComponent implements OnInit, AfterViewInit {
 
   }
 
-
   leftSwiperButton() {
     const maxTranslateX = 0; // Prevent scrolling beyond the first item
     this.currentTranslateX = Math.min(this.currentTranslateX + this.itemWidth, maxTranslateX);
     this.scrollContainer.nativeElement.style.transform = `translateX(${this.currentTranslateX}px)`;
+    this.scrollContainer.nativeElement.style.transition = 'transform 0.5s ease-in-out';
   }
 
   rightSwiperButton() {
@@ -79,6 +79,7 @@ export class MovieGridComponent implements OnInit, AfterViewInit {
     const maxTranslateX = -(this.itemWidth * (this.continueWatchingMovies.length - Math.floor(containerWidth / this.itemWidth)));
     this.currentTranslateX = Math.max(this.currentTranslateX - this.itemWidth, maxTranslateX);
     this.scrollContainer.nativeElement.style.transform = `translateX(${this.currentTranslateX}px)`;
+    this.scrollContainer.nativeElement.style.transition = 'transform 0.5s ease-in-out';
   }
 
   showDetails(item: any) {

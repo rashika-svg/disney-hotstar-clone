@@ -25,8 +25,8 @@
                 </div>
 
                 <ng-container *ngIf="movie === selectedItem">
-                    <div class="scale-125 z-20 w-64" [ngClass]="{'origin-left': i === 0}">
-                        <img [src]="movie.poster" alt="cardImg" class="h-48 w-full object-cover rounded-lg relative" />
+                    <div class="scale-125 z-20 w-64  shadow-lg shadow-zinc-900" [ngClass]="{'origin-left': i === 0}">
+                        <img [src]="movie.cardImg" alt="cardImg" class="h-48 w-full object-cover rounded-lg relative" />
                         <div
                             class="text-xs px-3 py-2 absolute -bottom-20 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent duration-300 w-full">
 
@@ -54,7 +54,7 @@
                                 <span>{{movie.duration}}</span>
                             </div>
 
-                            <div class=" text-white/50 mt-2">{{movie.description}}</div>
+                            <div class=" text-white/50 mt-2">{{movie.description.slice(0,100)}}...</div>
 
                         </div>
                     </div>

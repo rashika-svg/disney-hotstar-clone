@@ -15,10 +15,10 @@
         </button>
     </div>
 
-    <div class="flex gap-2 cursor-pointer" #scrollContainer>
+    <div class="flex cursor-pointer mr-2" #scrollContainer>
         <div class="relative h-full" *ngFor="let movie of continueWatchingMovies; let i = index"
             (mouseover)="showDetails(movie)" (mouseleave)="hideDetails()">
-            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative">
+            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative p-1">
                 <div class="bg-[#1f2021] rounded-lg">
                     <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg z-10"
                         [ngClass]="{'hidden': movie === selectedItem}" />
@@ -31,7 +31,7 @@
                 </div>
 
                 <ng-container *ngIf="movie === selectedItem">
-                    <div class="scale-125 z-20 origin-bottom" [ngClass]="{'origin-bottom-left': i === 0}">
+                    <div class="scale-125 z-20 origin-bottom shadow-lg shadow-zinc-900" [ngClass]="{'origin-bottom-left': i === 0}">
                         <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg" />
                         <div class="px-3 py-2">
                             <div>{{movie.seasonDate}}</div>

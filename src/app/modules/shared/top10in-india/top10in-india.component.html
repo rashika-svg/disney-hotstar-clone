@@ -8,24 +8,24 @@
     </div>
 
     <div class="absolute left-0 top-0 h-full z-50 hidden group-hover:flex justify-center">
-        <button class="pb-16" (click)="leftSwiperButton()">
+        <button class=" pb-16" (click)="leftSwiperButton()">
             <span class="material-symbols-rounded text-4xl text-white hover:scale-110 hover:text-white duration-300">
                 chevron_left
             </span>
         </button>
     </div>
 
-    <div class="flex gap-2 cursor-pointer" #scrollContainer>
-        <div class="relative h-full" *ngFor="let movie of top10inIndia; let i = index" (mouseover)="showDetails(movie)"
-            (mouseleave)="hideDetails()">
-            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative">
+    <div class="flex cursor-pointer mr-2" #scrollContainer>
+        <div class="relative h-full" #carouselItem *ngFor="let movie of top10inIndia; let i = index"
+            (mouseover)="showDetails(movie)" (mouseleave)="hideDetails()">
+            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative p-1.5">
                 <div class="bg-[#1f2021] rounded-lg">
                     <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg z-10"
                         [ngClass]="{'hidden': movie === selectedItem}" />
                 </div>
 
                 <ng-container *ngIf="movie === selectedItem">
-                    <div class="scale-125 origin-bottom z-20" [ngClass]="{'origin-bottom-left': i === 0}">
+                    <div class="scale-125 origin-bottom z-20 shadow-lg shadow-zinc-900" [ngClass]="{'origin-bottom-left': i === 0}">
                         <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg relative" />
                         <div
                             class="rounded-lg text-xs px-3 py-2 absolute -bottom-16 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent duration-300 w-full">
