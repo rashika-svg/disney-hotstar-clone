@@ -1,12 +1,29 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-latest-release',
   templateUrl: './latest-release.component.html',
-  styleUrls: ['./latest-release.component.scss']
+  styleUrls: ['./latest-release.component.scss'],
+  animations: [
+    trigger('cardAnimation', [
+      state('default', style({
+      })),
+      state('hovered', style({
+        height: '200px',
+      })),
+      transition('default => hovered', [
+        animate('300ms ease-in-out')
+      ]),
+      transition('hovered => default', [
+        animate('300ms ease-in-out')
+      ]),
+    ]),
+  ]
 })
 export class LatestReleaseComponent implements OnInit {
   tableName = 'Latest Release Sci-Fi';
+  state = 'default';
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef<any>;
 
@@ -157,7 +174,6 @@ export class LatestReleaseComponent implements OnInit {
     },
   ];
 
-
   selectedItem: any = null;
   itemWidth = 190;
   currentTranslateX = 0;
@@ -183,10 +199,12 @@ export class LatestReleaseComponent implements OnInit {
   }
 
   showDetails(item: any) {
+    this.state = 'hovered';
     this.selectedItem = item;
   }
 
   hideDetails() {
+    this.state = 'default';
     this.selectedItem = null;
   }
 

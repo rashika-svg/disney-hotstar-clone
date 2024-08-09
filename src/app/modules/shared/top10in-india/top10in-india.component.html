@@ -18,14 +18,16 @@
     <div class="flex cursor-pointer mr-2" #scrollContainer>
         <div class="relative h-full" #carouselItem *ngFor="let movie of top10inIndia; let i = index"
             (mouseover)="showDetails(movie)" (mouseleave)="hideDetails()">
-            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative p-1.5">
+            <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative p-1.5"
+                [@cardAnimation]="movie === selectedItem ? 'hovered' : 'default'">
                 <div class="bg-[#1f2021] rounded-lg">
                     <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg z-10"
                         [ngClass]="{'hidden': movie === selectedItem}" />
                 </div>
 
                 <ng-container *ngIf="movie === selectedItem">
-                    <div class="scale-125 origin-bottom z-20 shadow-lg shadow-zinc-900" [ngClass]="{'origin-bottom-left': i === 0}">
+                    <div class="scale-125 origin-bottom z-20 shadow-lg shadow-zinc-900"
+                        [ngClass]="{'origin-bottom-left': i === 0}">
                         <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg relative" />
                         <div
                             class="rounded-lg text-xs px-3 py-2 absolute -bottom-16 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent duration-300 w-full">

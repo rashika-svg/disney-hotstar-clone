@@ -1,12 +1,29 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-movie-grid',
   templateUrl: './movie-grid.component.html',
   styleUrls: ['./movie-grid.component.scss'],
+  animations: [
+    trigger('cardAnimation', [
+      state('default', style({
+      })),
+      state('hovered', style({
+        height: '260px',
+      })),
+      transition('default => hovered', [
+        animate('300ms ease-in-out')
+      ]),
+      transition('hovered => default', [
+        animate('200ms ease-in-out')
+      ]),
+    ]),
+  ]
 })
 export class MovieGridComponent implements OnInit, AfterViewInit {
   tableName = 'Best in Movies';
+  state = 'default';
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef<any>;
 
@@ -83,10 +100,12 @@ export class MovieGridComponent implements OnInit, AfterViewInit {
   }
 
   showDetails(item: any) {
+    this.state = 'hovered';
     this.selectedItem = item;
   }
 
   hideDetails() {
+    this.state = 'default';
     this.selectedItem = null;
   }
 }

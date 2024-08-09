@@ -18,18 +18,18 @@
     <div class="flex gap-2 cursor-pointer" #scrollContainer>
         <div class="relative" *ngFor="let movie of latestRelease; let i = index" (mouseover)="showDetails(movie)"
             (mouseleave)="hideDetails()">
-            <div class="w-48 grid hover:gap-0 rounded-lg text-lg text-white/90 movieCard relative">
+            <div class="w-48 grid hover:gap-0 rounded-lg text-lg text-white/90 movieCard relative"
+                [@cardAnimation]="movie === selectedItem ? 'hovered' : 'default'">
                 <div class="rounded-lg">
                     <img [src]="movie.poster" alt="cardImg" class="w-full h-72 object-cover rounded-lg z-10"
                         [ngClass]="{'hidden': movie === selectedItem}" />
                 </div>
 
                 <ng-container *ngIf="movie === selectedItem">
-                    <div class="scale-125 z-20 w-64  shadow-lg shadow-zinc-900" [ngClass]="{'origin-left': i === 0}">
+                    <div class="scale-125 z-20 w-64 shadow-lg shadow-zinc-900" [ngClass]="{'origin-left': i === 0}">
                         <img [src]="movie.cardImg" alt="cardImg" class="h-48 w-full object-cover rounded-lg relative" />
                         <div
                             class="text-xs px-3 py-2 absolute -bottom-20 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent duration-300 w-full">
-
                             <div class="flex gap-2 items-center">
                                 <button
                                     class="font-medium rounded-lg py-2 w-full bg-white flex gap-1 items-center justify-center text-black">

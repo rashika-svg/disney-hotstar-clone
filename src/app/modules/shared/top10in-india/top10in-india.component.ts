@@ -1,13 +1,30 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-top10in-india',
   templateUrl: './top10in-india.component.html',
-  styleUrls: ['./top10in-india.component.scss']
+  styleUrls: ['./top10in-india.component.scss'],
+  animations: [
+    trigger('cardAnimation', [
+      state('default', style({
+      })),
+      state('hovered', style({
+        height: '180px',
+      })),
+      transition('default => hovered', [
+        animate('300ms ease-in-out')
+      ]),
+      transition('hovered => default', [
+        animate('200ms ease-in-out')
+      ]),
+    ]),
+  ]
 })
 export class Top10inIndiaComponent implements OnInit, AfterViewInit {
 
   tableName = 'Top 10 in India';
+  state = 'default';
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef<any>;
   @ViewChild('carouselItem') carouselItem!: ElementRef<any>;
@@ -204,10 +221,12 @@ export class Top10inIndiaComponent implements OnInit, AfterViewInit {
   }
 
   showDetails(item: any) {
+    this.state = 'hovered';
     this.selectedItem = item;
   }
 
   hideDetails() {
+    this.state = 'default';
     this.selectedItem = null;
   }
 
