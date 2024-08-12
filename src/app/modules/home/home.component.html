@@ -58,7 +58,7 @@
                         <div class="flex h-1/2 overflow-hidden" #scrollContainer>
                             <div class="pr-2 py-1" *ngFor="let movie of movieCarousel; let i = index">
                                 <div
-                                    class="rounded hover:scale-110 duration-100 brightness-75 hover:brightness-100 w-20 cursor-pointer">
+                                    class="rounded hover:scale-110 duration-200 brightness-75 hover:brightness-100 w-20 cursor-pointer">
                                     <img class="h-12 w-full rounded" [src]="movie.thumbnail" alt=""
                                         (click)="selectedItem(i)">
                                 </div>
@@ -83,16 +83,8 @@
                 </div>
             </div>
         </div>
-        <!-- <div
-            class="absolute right-0 w-full bg-gradient-to-t from-black/90 via-black/90 to-transparent top-[90%] grid gap-10">
-            <app-movie-grid></app-movie-grid>
-            <app-latest-release></app-latest-release>
-            <app-top10in-india></app-top10in-india>
-        </div> -->
         <div class="pb-[10rem] bg-gradient-to-t from-black/90 via-black/90 to-transparent absolute top-[87%]">
-            <app-movie-grid></app-movie-grid>
-            <app-latest-release></app-latest-release>
-            <app-top10in-india></app-top10in-india> 
+            <app-movie-carousel></app-movie-carousel>
         </div>
     </div>
 </div>

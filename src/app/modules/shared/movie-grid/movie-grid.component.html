@@ -21,7 +21,7 @@
             <div class="w-72 grid hover:gap-0 rounded-lg text-base text-white/90 movieCard relative p-1"
                 [@cardAnimation]="movie === selectedItem ? 'hovered' : 'default'">
                 <div class="bg-[#1f2021] rounded-lg">
-                    <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg z-10"
+                    <img [src]="movie.cardImg" alt="cardImg" class="h-36 w-full object-cover rounded-lg z-10"
                         [ngClass]="{'hidden': movie === selectedItem}" />
                     <div class="px-3 pt-4 py-2" [ngClass]="{'hidden': movie === selectedItem}">
                         <div>{{movie.seasonDate}} {{i}}</div>
@@ -32,8 +32,7 @@
                 </div>
 
                 <ng-container *ngIf="movie === selectedItem">
-                    <div class="scale-125 z-20 origin-bottom"
-                        [ngClass]="{'origin-bottom-left': i === 0}">
+                    <div class="scale-125 z-20 origin-bottom" [ngClass]="{'origin-bottom-left': i === 0}">
                         <img [src]="movie.cardImg" alt="cardImg" class="w-full object-contain rounded-lg" />
                         <div class="px-3 py-2">
                             <div>{{movie.seasonDate}}</div>

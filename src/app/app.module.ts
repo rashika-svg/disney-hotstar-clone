@@ -29,7 +29,6 @@ import { SharedModule } from './modules/shared/shared.module';
     MatSidenavModule,
     MatTooltipModule,
     SharedModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

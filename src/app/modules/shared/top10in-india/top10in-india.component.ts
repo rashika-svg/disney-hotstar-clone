@@ -21,6 +21,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
   ]
 })
+
 export class Top10inIndiaComponent implements OnInit, AfterViewInit {
 
   tableName = 'Top 10 in India';
@@ -207,7 +208,7 @@ export class Top10inIndiaComponent implements OnInit, AfterViewInit {
 
   leftSwiperButton() {
     const maxTranslateX = 0; // Prevent scrolling beyond the first item
-    this.currentTranslateX = Math.min(this.currentTranslateX + this.itemWidth, maxTranslateX);
+    this.currentTranslateX = Math.min(this.currentTranslateX + this.itemWidth * 4, maxTranslateX);
     this.scrollContainer.nativeElement.style.transform = `translateX(${this.currentTranslateX}px)`;
     this.scrollContainer.nativeElement.style.transition = 'transform 0.5s ease-in-out';
   }
@@ -215,7 +216,7 @@ export class Top10inIndiaComponent implements OnInit, AfterViewInit {
   rightSwiperButton() {
     const containerWidth = this.scrollContainer.nativeElement.getBoundingClientRect().width;
     const maxTranslateX = -(this.itemWidth * (this.top10inIndia.length - Math.floor(containerWidth / this.itemWidth)));
-    this.currentTranslateX = Math.max(this.currentTranslateX - this.itemWidth, maxTranslateX);
+    this.currentTranslateX = Math.max(this.currentTranslateX - this.itemWidth * 4, maxTranslateX);
     this.scrollContainer.nativeElement.style.transform = `translateX(${this.currentTranslateX}px)`;
     this.scrollContainer.nativeElement.style.transition = 'transform 0.5s ease-in-out';
   }
